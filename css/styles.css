@@ -1,0 +1,81 @@
+#B3 {
+  border-left: solid;
+  border-right: solid;
+}
+
+#B2 {
+  border: solid;
+}
+
+#B1 {
+  border-left: solid;
+  border-right: solid;
+}
+
+#A2 {
+  border-top: solid;
+  border-bottom: solid;
+}
+#C2 {
+  border-top: solid;
+  border-bottom: solid;
+}
+img {
+  width: 300px;
+  height: 300px;
+}
+
+#A1x{
+  display: none;
+}
+#B1x{
+  display: none;
+}
+#C1x{
+  display: none;
+}
+#A2x{
+  display: none;
+}
+#B2x{
+  display: none;
+}
+#C2x{
+  display: none;
+}
+#A3x{
+  display: none;
+}
+#B3x{
+  display: none;
+}
+#C3x{
+  display: none;
+}
+#A1o{
+  display: none;
+}
+#B1o{
+  display: none;
+}
+#C1o{
+  display: none;
+}
+#A2o{
+  display: none;
+}
+#B2o{
+  display: none;
+}
+#C2o{
+  display: none;
+}
+#A3o{
+  display: none;
+}
+#B3o{
+  display: none;
+}
+#C3o{
+  display: none;
+}
