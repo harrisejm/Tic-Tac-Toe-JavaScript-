@@ -8,12 +8,62 @@ $(document).ready(function(){
   var p1 = [];
   var p2 = [];
 
-var turn = false;
+   var winCheck = function(){
+  if (p1.includes("A1") === true && p1.includes("B1") === true && p1.includes("C1") === true) {
+    player1.win = true;
+  } else if (p1.includes("A2") === true && p1.includes("B2") === true && p1.includes("C2") === true) {
+    player1.win = true;
+  } else if (p1.includes("A3") === true && p1.includes("B3") === true && p1.includes("C3") === true) {
+  player1.win = true;
+  } else if (p1.includes("A1") === true && p1.includes("A2") === true && p1.includes("A3") === true) {
+    player1.win = true;
+  } else if (p1.includes("B1") === true && p1.includes("B2") === true && p1.includes("B3") === true) {
+    player1.win = true;
+  }  else if (p1.includes("C1") === true && p1.includes("C2") === true && p1.includes("C3") === true) {
+    player1.win = true;
+  } else if (p1.includes("A1") === true && p1.includes("B2") === true && p1.includes("C3") === true) {
+    player1.win = true;
+  } else if (p1.includes("A3") === true && p1.includes("B2") === true && p1.includes("C1") === true) {
+  player1.win = true;
+
+  } else if (p2.includes("A1") === true && p2.includes("B1") === true && p2.includes("C1") === true) {
+    player2.win = true;
+  } else if (p2.includes("A2") === true && p2.includes("B2") === true && p2.includes("C2") === true) {
+    player2.win = true;
+  } else if (p2.includes("A3") === true && p2.includes("B3") === true && p2.includes("C3") === true) {
+    player2.win = true;
+  } else if (p2.includes("A1") === true && p2.includes("A2") === true && p2.includes("A3") === true) {
+    player2.win = true;
+  } else if (p2.includes("B1") === true && p2.includes("B2") === true && p2.includes("B3") === true) {
+    player2.win = true;
+  }  else if (p2.includes("C1") === true && p2.includes("C2") === true && p2.includes("C3") === true) {
+    player2.win = true;
+  } else if (p2.includes("A1") === true && p2.includes("B2") === true && p2.includes("C3") === true) {
+    player2.win = true;
+  } else if (p2.includes("A3") === true && p2.includes("B2") === true && p2.includes("C1") === true) {
+  player2.win = true;
+  }
+
+}
+
+
+var turn = true;
 var Player = function(name, turn, win,){
   this.name = name;
   this.turn = turn;
   this.win = win;
 }
+
+var winDeclare = function() {
+  if (player1.win === true){
+    $("#win1").show();
+    $("#gameBody").hide();
+  } else if (player2.win === true){
+    $("#win2").show();
+    $("#gameBody").hide();
+  }
+}
+
 
 var Square = function(emptySquare, xSquare, oSquare) {
   this.emptySquare = emptySquare;
@@ -22,6 +72,8 @@ var Square = function(emptySquare, xSquare, oSquare) {
 }
 
 var player1 = new Player("Eddie", true, false);
+var player2 = new Player("Eddie1", false, false);
+
 var firstSquare = new Square(true, false, false);
 
 
@@ -31,12 +83,11 @@ event.preventDefault();
     $("#A1click").hide();
     $("#A1x").toggle();
     p1.push(board[0][0]);
- //document.getElementById("test2").innerHTML = p1.join(" "); ////
+
   firstSquare.emptySquare = false;
   firstSquare.xSquare = true;
   firstSquare.oSquare = false;
   turn = false;
-  document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
 } else if (turn === false) {
   $("#A1click").hide();
   $("#A1o").toggle();
@@ -46,8 +97,10 @@ event.preventDefault();
   firstSquare.oSquare = true;
   firstSquare.xSquare = false;
   turn = true;
-  document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 
@@ -62,7 +115,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#B1click").hide();
 $("#B1o").toggle();
@@ -71,8 +124,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 $("#C1click" ).click(function(event) {
@@ -85,7 +140,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare  + p1.join(" ");
+
 } else if (turn === false) {
 $("#C1click").hide();
 $("#C1o").toggle();
@@ -94,8 +149,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 $( "#A2click").click(function(event) {
@@ -108,7 +165,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#A2click").hide();
 $("#A2o").toggle();
@@ -119,6 +176,8 @@ firstSquare.xSquare = false;
 turn = true;
 document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
 }
+winCheck();
+winDeclare();
 });
 
 $("#B2click" ).click(function(event) {
@@ -131,7 +190,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#B2click").hide();
 $("#B2o").toggle();
@@ -140,8 +199,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 $("#C2click" ).click(function(event) {
@@ -154,7 +215,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#C2click").hide();
 $("#C2o").toggle();
@@ -163,8 +224,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 $("#A3click" ).click(function(event) {
@@ -177,7 +240,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#A3click").hide();
 $("#A3o").toggle();
@@ -186,8 +249,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 $("#B3click" ).click(function(event) {
@@ -200,7 +265,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#B3click").hide();
 $("#B3o").toggle();
@@ -209,8 +274,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 $("#C3click").click(function(event) {
@@ -223,7 +290,7 @@ firstSquare.emptySquare = false;
 firstSquare.xSquare = true;
 firstSquare.oSquare = false;
 turn = false;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p1.join(" ");
+
 } else if (turn === false) {
 $("#C3click").hide();
 $("#C3o").toggle();
@@ -232,8 +299,10 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
+
 }
+winCheck();
+winDeclare();
 });
 
 });
