@@ -64,7 +64,6 @@ var winDeclare = function() {
   }
 }
 
-
 var Square = function(emptySquare, xSquare, oSquare) {
   this.emptySquare = emptySquare;
   this.xSquare = xSquare;
@@ -73,9 +72,7 @@ var Square = function(emptySquare, xSquare, oSquare) {
 
 var player1 = new Player("Eddie", true, false);
 var player2 = new Player("Eddie1", false, false);
-
 var firstSquare = new Square(true, false, false);
-
 
 $("#A1click").click(function(event) {
 event.preventDefault();
@@ -174,7 +171,6 @@ firstSquare.emptySquare = false;
 firstSquare.oSquare = true;
 firstSquare.xSquare = false;
 turn = true;
-document.getElementById("test").innerHTML = firstSquare.xSquare + p2.join(" ");
 }
 winCheck();
 winDeclare();
